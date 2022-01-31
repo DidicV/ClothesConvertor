@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Curele</title>
+</head>
+<body>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<div class="calculator">
+    <div class="sidebar">
+        <h2>Calculator</h2>
+        <ul>
+            <li><a href="Calculator.html"><i class="fas fa-home"></i>Pagina principala</a></li>
+            <li><a href="Camasi.html"><i class="fas fa-tshirt"></i>Haine</a></li>
+            <li><a href="Pantaloni.html"><i class="fas fa-male"></i>Pantaloni</a></li>
+            <li><a href="Ciorapi.html"><i class="fas fa-socks"></i>Ciorapi</a></li>
+            <li><a href="Incaltaminte.html"><i class="fas fa-shoe-prints"></i>Încălțăminte</a></li>
+            <li><a href="Palarie.html"><i class="fas fa-hat-cowboy"></i>Pălărie</a></li>
+            <li><a href="#"><i class="fas fa-people-arrows"></i>Curele</a></li>
+            <li><a href="Inele.html"><i class="far fa-circle"></i>   Inele</a></li>
+        </ul>
+
+</div>
+
+
+<div class="main_content">
+    <div class="header" style="color: black">Pagina de convertire.</div>  
+        <div class="info">
+          <div class="font-special">
+            <h1 style="color: #594f8d;" class="titlu">Curele</h1>
+            <h2 style="font-family: sans-serif; line-height: 1.5em; color: black; margin-top: 1em; margin-bottom: 1em; font-size:1.3em; text-align: justify;">
+            Cureaua reprezinta una dintre cele mai versatile si mai populare accesorii din garderoba unei persoane. Purtata si asortata corect, iti poate transforma tinuta, oferind un plus de stil si personalitate.
+            Indiferent daca o porti stransa in talie sau pe solduri, cureaua trebuie sa aiba marimea potrivita, astfel incat sa arate bine din punct de vedere estetic si sa nu-ti creeze probleme de sanatate.
+            </h2>
+
+
+<center>
+    
+        <select id="data1">
+          <option value="0">32</option>
+          <option value="1">34</option>
+          <option value="2">36</option>
+          <option value="3">38</option>
+          <option value="4">40</option>
+          <option value="5">42</option>
+          <option value="6">44</option>
+          <option value="7">46</option>
+          <option value="8">48</option>
+          <option value="9">50</option>
+        </select>
+
+
+        <select onchange="tabel1()" id="data2">
+          <option value="0">SUA inches</option>
+          <option value="1">Europa cm</option>
+        </select>
+
+<button onclick="inversia()" class="btn"></ion-icon></ion-icon></button>
+
+        <select id="data3">
+          <option value="0">SUA inches</option>
+          <option value="1">Europa cm</option>
+        </select>
+
+<button onclick="convert()" class="button">Click me</button>
+        <br>
+        <div class="rezultatul" id="result" style="font-size: 25px;"></div>
+</center>
+
+<script type="text/javascript">
+
+var valori_tabel=[
+[32,  34,  36,  38,  40,  42,  44,  46,  48,  50],
+[81,  86,  91,  97, 102, 107, 112, 117, 122, 127]
+
+]
+
+
+function tabel1()
+{
+
+// extragerea indexului valorii alese
+    var select = document.getElementById('data2');
+    var value = select.options[select.selectedIndex].value;
+    value = parseInt(value);
+
+//si inlocuirea cu valorile din matrice in dependenta cu ce schimbam
+    var data = document.getElementById("data1");
+    for(var i = 0; i < data.length; i++)
+    {
+        data.options[i].text = valori_tabel[value][i];
+    }
+
+}
+
+
+function convert()
+{
+    //extragem din dropdown stanga
+    var select = document.getElementById('data2');
+    var value1 = select.options[select.selectedIndex].value;
+    value1 = parseInt(value1);
+
+    //extragem din dropdown dreapta
+    var select = document.getElementById('data3');
+    var value2 = select.options[select.selectedIndex].value;
+    value2 = parseInt(value2);
+
+    //extragem indexul la valoarea aleasa
+    var select = document.getElementById('data1');
+    var index = select.options[select.selectedIndex].value;
+    index = parseInt(index);
+
+    document.getElementById("result").innerHTML = valori_tabel[value2][index];
+}
+    
+
+
+function inversia()
+{
+    //extragem din dropdown stanga
+    var select = document.getElementById('data2');
+    var value1 = select.options[select.selectedIndex].value;
+    value1 = parseInt(value1);
+
+    //extragem din dropdown dreapta
+    var select = document.getElementById('data3');
+    var value2 = select.options[select.selectedIndex].value;
+    value2 = parseInt(value2);
+
+    console.log(value1);
+    console.log(value2);
+
+        var stanga = document.getElementById('data2');
+
+    var dreapta = document.getElementById('data3');
+
+    stanga.selectedIndex = value2;
+
+    dreapta.selectedIndex = value1;
+
+    tabel1();
+
+}
+</script>
+        
+                
+              </div>
+        </div>
+        </div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

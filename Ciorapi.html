@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ciorapi</title>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<div class="calculator">
+    <div class="sidebar">
+        <h2>Calculator</h2>
+        <ul>
+            <li><a href="Calculator.html"><i class="fas fa-home"></i>Pagina principala</a></li>
+            <li><a href="Camasi.html"><i class="fas fa-tshirt"></i>Haine</a></li>
+            <li><a href="Pantaloni.html"><i class="fas fa-male"></i>Pantaloni</a></li>
+            <li><a href="#"><i class="fas fa-socks"></i>Ciorapi</a></li>
+            <li><a href="Incaltaminte.html"><i class="fas fa-shoe-prints"></i>Încălțăminte</a></li>
+            <li><a href="Palarie.html"><i class="fas fa-hat-cowboy"></i>Pălărie</a></li>
+            <li><a href="Curele.html"><i class="fas fa-people-arrows"></i>Curele</a></li>  
+            <li><a href="Inele.html"><i class="far fa-circle"></i>   Inele</a></li>        
+        </ul> 
+    </div>
+
+<div class="main_content">
+    <div class="header" style="color: black">Pagina de convertire.</div>  
+        <div class="info">
+          <div class="font-special">
+            <h1 style="color: #594f8d;" class="titlu">Ciorapi</h1>
+            <h2 style="font-family: sans-serif; line-height: 1.5em; color:black; margin-top: 1em; margin-bottom: 1em; font-size:1.3em; text-align: justify;">
+            ISO/TS 19407:2015 cuprinde trei tabele de conversie a mărimii ciorapilor care acoperă principalele sisteme de dimensionare a pantofilor (Mondopoint, Europa și Regatul Unit, precum și China, Japonia și Statele Unite). Tabelele se bazează pe măsurarea lungimii piciorului, deoarece acesta este punctul de plecare logic pentru orice sistem de mărime de ciorapi. Mărimile ciorapilor pentru copii sunt aproximații convertite din lungimea piciorului prin adăugarea unei alocații de 8% la degetele de la picioare și potrivirea rezultatului cu cea mai apropiată dimensiune practic disponibilă.
+            </h2>
+
+
+ <center>
+
+        <select id="data1" class="select-box" style="width: 100px;">
+          <option value="0">36-39</option>
+          <option value="1">40-43</option>
+          <option value="2">44-47</option>
+          <option value="3">48+</option>
+        </select>
+
+
+        <select onchange="tabel1()" id="data2">         
+          <option value="0">Europa</option>
+          <option value="1">SUA</option>
+          <option value="2">Regatul Unit</option>         
+          <option value="3">Europa</option>
+          <option value="4">USA</option>
+          <option value="5">Regatul Unit</option>         
+          <option value="6">Europa</option>
+          <option value="7">USA</option>
+          <option value="8">Regatul Unit</option>
+          <option value="9">Bărbat</option>
+          <option value="10">Femeie</option>
+          <option value="11">Copil</option>
+        </select>
+
+<button onclick="inversia()" class="btn"></ion-icon></ion-icon></button>
+
+        <select id="data3">
+          <option value="0">Europa</option>
+          <option value="1">SUA</option>
+          <option value="2">Regatul Unit</option>         
+          <option value="3">Europa</option>
+          <option value="4">USA</option>
+          <option value="5">Regatul Unit</option>         
+          <option value="6">Europa</option>
+          <option value="7">USA</option>
+          <option value="8">Regatul Unit</option>
+          <option value="9">Bărbat</option>
+          <option value="10">Femeie</option>
+          <option value="11">Copil</option>
+        </select>
+
+
+<button onclick="convert()" class="button">Click me</button>
+        <br>
+        <div class="rezultatul" id="result" style="font-size: 25px;"></div>
+</center>
+
+
+<script type="text/javascript">
+
+var valori_tabel=[
+[ "36-39", "40-43",  "44-47",  "48+" ],
+[   "4/6",   "7/9",  "10/12",  "13+" ],
+[   "3/5",   "6/8",   "9/11",  "12+" ],
+[ "35-37", "38-40",  "41-43", "44-45"],
+[   "4/6",   "6/8",   "8/10", "10/12"],
+[   "3/4",   "5/6",    "7/8", "9/10" ],
+[ "27-30", "32-35",  "31-33", "34-36"],
+[  "10-1",  "13-2",    "2-4", "4-6"  ],
+[  "9-12",  "13-2",   "12-1", "1-3"  ],
+[     "S",     "M",      "L", "XL"   ],
+[    "wS",    "wM",     "wL", "wXL"  ],
+[   "XXS",    "XS",     "jM", "jL"   ]
+
+]
+
+function tabel1()
+{
+
+// extragerea indexului valorii alese
+    var select = document.getElementById('data2');
+    var value = select.options[select.selectedIndex].value;
+    value = parseInt(value);
+
+//si inlocuirea cu valorile din matrice in dependenta cu ce schimbam
+    var data = document.getElementById("data1");
+    for(var i = 0; i < data.length; i++)
+    {
+        data.options[i].text = valori_tabel[value][i];
+    }
+
+}
+
+
+function convert()
+{
+    //extragem din dropdown stanga
+    var select = document.getElementById('data2');
+    var value1 = select.options[select.selectedIndex].value;
+    value1 = parseInt(value1);
+
+    //extragem din dropdown dreapta
+    var select = document.getElementById('data3');
+    var value2 = select.options[select.selectedIndex].value;
+    value2 = parseInt(value2);
+
+    //extragem indexul la valoarea aleasa
+    var select = document.getElementById('data1');
+    var index = select.options[select.selectedIndex].value;
+    index = parseInt(index);
+
+    document.getElementById("result").innerHTML = valori_tabel[value2][index];
+}
+    
+
+function inversia()
+{
+    //extragem din dropdown stanga
+    var select = document.getElementById('data2');
+    var value1 = select.options[select.selectedIndex].value;
+    value1 = parseInt(value1);
+
+    //extragem din dropdown dreapta
+    var select = document.getElementById('data3');
+    var value2 = select.options[select.selectedIndex].value;
+    value2 = parseInt(value2);
+
+    console.log(value1);
+    console.log(value2);
+
+        var stanga = document.getElementById('data2');
+
+    var dreapta = document.getElementById('data3');
+
+    stanga.selectedIndex = value2;
+
+    dreapta.selectedIndex = value1;
+
+    tabel1();
+
+}
+    
+</script>
+        
+                
+             </div>
+        </div>
+        </div>
+
+</div>
+</body>
+</html>

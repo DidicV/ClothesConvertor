@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pălărie</title>
+</head>
+<body>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<div class="calculator">
+    <div class="sidebar">
+        <h2>Calculator</h2>
+        <ul>
+            <li><a href="Calculator.html"><i class="fas fa-home"></i>Pagina principala</a></li>
+            <li><a href="Camasi.html"><i class="fas fa-tshirt"></i>Haine</a></li>
+            <li><a href="Pantaloni.html"><i class="fas fa-male"></i>Pantaloni</a></li>
+            <li><a href="Ciorapi.html"><i class="fas fa-socks"></i>Ciorapi</a></li>
+            <li><a href="Incaltaminte.html"><i class="fas fa-shoe-prints"></i>Încălțăminte</a></li>
+            <li><a href="#"><i class="fas fa-hat-cowboy"></i>Pălărie</a></li>
+            <li><a href="Curele.html"><i class="fas fa-people-arrows"></i>Curele</a></li>
+            <li><a href="Inele.html"><i class="far fa-circle"></i>    Inele</a></li>
+        </ul>
+
+</div>
+
+
+<div class="main_content">
+    <div class="header" style="color: black">Pagina de convertire.</div>  
+        <div class="info">
+          <div class="font-special">
+            <h1 style="color: #594f8d;" class="titlu">Pălării</h1>
+            <h2 style="font-family: sans-serif; line-height: 1.5em; color: black; margin-top: 1em; margin-bottom: 1em; font-size:1.3em; text-align: justify;">
+            Pălăria- accesoriu ce este folosit pentru acoperirea capului, și constă dintr-un bor și calotă. Este un accesoriu foarte elegant și izbitor dacă este purtat corespunzător. Purtarea unei pălării într-un mod elegant, deosebit are anumite reguli sau coduri de folosire foarte simple.
+            Mărimile pălăriilor sunt determinate prin măsurarea circumferinței capului unei persoane la aproximativ 1 centimetru (1⁄2 inch) deasupra urechilor.
+            </h2>
+
+
+<center>
+    
+        <select id="data1">
+          <option value="0">XXXXS</option>
+          <option value="1">XXXS</option>
+          <option value="2">XXXS</option>
+          <option value="3">XXS</option>
+          <option value="4">XXS</option>
+          <option value="5">XS</option>
+          <option value="6">XS</option>
+          <option value="7">S</option>
+          <option value="8">S</option>
+          <option value="9">M</option>
+          <option value="10">M</option>
+          <option value="11">L</option>
+          <option value="12">L</option>
+          <option value="13">XL</option>
+          <option value="14">XL</option>
+          <option value="15">XXL</option>
+          <option value="16">XXL</option>
+          <option value="17">XXXL</option>
+          <option value="18">XXXL</option>
+        </select>
+
+
+        <select onchange="tabel1()" id="data2">
+          <option value="0">Mărime pentru adult</option>
+          <option value="1">Mărime pentru copii</option>
+          <option value="2">Centimetri</option>
+          <option value="3">Inchi</option>
+          <option value="4">SUA mărime</option>
+          <option value="5">UK mărime</option>
+        </select>
+
+<button onclick="inversia()" class="btn"></ion-icon></ion-icon></button>
+
+        <select id="data3">
+          <option value="0">Mărime pentru adult</option>
+          <option value="1">Mărime pentru copii</option>
+          <option value="2">Centimetri</option>
+          <option value="3">Inchi</option>
+          <option value="4">SUA mărime</option>
+          <option value="5">UK mărime</option>
+        </select>
+
+<button onclick="convert()" class="button">Click me</button>
+        <br>
+        <div class="rezultatul" id="result" style="font-size: 25px;"></div>
+</center>
+
+<script type="text/javascript">
+
+
+var valori_tabel=[
+[  "XXXXS", "XXXS", "XXXS", "XXS", "XXS", "XS", "XS", "S", "S", "M", "M", "L", "L", "XL","XL", "XXL","XXL", "XXXL", "XXXL"],
+[     "XS",   "XS",    "S",   "S",   "M",  "M",  "L", "L","XL","XL",  "",  "",  "",   "",  "",    "",   "",     "",   "  "],
+[       47,     48,     49,    50,    51,   52,   53,  54,  55,  56,  57,  58,  59,   60,  61,    62,   63,     64, 65  ],
+[ "18 1/2", "18 7/8", "19 1/4", "19 5/8", "20 1/8", "20 1/2", "20 7/8",  "21 1/4", "21 5/8",22, "22 1/2", "22 7/8", "23 1/4", "23 5/8", 24, "24 1/2", "24 7/8", "25 1/4", "25 5/8"],
+[  "5 7/8",    "6","6 1/8","6 1/4", "6 3/8", "6 1/2", "6 5/8", "6 3/4", "6 7/8", "7", "7 1/8", "7 1/4", "7 3/8", "7 1/2", "7 5/8", "7 3/4", "7 7/8", "8", "8 1/8"],
+[  "5 3/4",  "5 7/8", "6", "6 1/8", "6 /14", "6 3/8", "6 1/2", "6 5/8", "6 3/4", "6 7/8", "7", "7 1/8", "7 1/4", "7 3/8", "7 1/2", "7 5/8", "7 3/4", "7 7/8", "8"]
+
+]
+
+
+
+function tabel1()
+{
+
+// extragerea indexului valorii alese
+    var select = document.getElementById('data2');
+    var value = select.options[select.selectedIndex].value;
+    value = parseInt(value);
+
+//si inlocuirea cu valorile din matrice in dependenta cu ce schimbam
+    var data = document.getElementById("data1");
+    for(var i = 0; i < data.length; i++)
+    {
+        data.options[i].text = valori_tabel[value][i];
+    }
+
+}
+
+
+function convert()
+{
+    //extragem din dropdown stanga
+    var select = document.getElementById('data2');
+    var value1 = select.options[select.selectedIndex].value;
+    value1 = parseInt(value1);
+
+    //extragem din dropdown dreapta
+    var select = document.getElementById('data3');
+    var value2 = select.options[select.selectedIndex].value;
+    value2 = parseInt(value2);
+
+    //extragem indexul la valoarea aleasa
+    var select = document.getElementById('data1');
+    var index = select.options[select.selectedIndex].value;
+    index = parseInt(index);
+
+    document.getElementById("result").innerHTML = valori_tabel[value2][index];
+}
+    
+
+
+function inversia()
+{
+    //extragem din dropdown stanga
+    var select = document.getElementById('data2');
+    var value1 = select.options[select.selectedIndex].value;
+    value1 = parseInt(value1);
+
+    //extragem din dropdown dreapta
+    var select = document.getElementById('data3');
+    var value2 = select.options[select.selectedIndex].value;
+    value2 = parseInt(value2);
+
+    console.log(value1);
+    console.log(value2);
+
+        var stanga = document.getElementById('data2');
+
+    var dreapta = document.getElementById('data3');
+
+    stanga.selectedIndex = value2;
+
+    dreapta.selectedIndex = value1;
+
+    tabel1();
+
+}
+</script>
+        
+                
+              </div>
+        </div>
+        </div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

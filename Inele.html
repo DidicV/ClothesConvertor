@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inele</title>
+</head>
+<body>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<div class="calculator">
+    <div class="sidebar">
+        <h2>Calculator</h2>
+        <ul>
+            <li><a href="Calculator.html"><i class="fas fa-home"></i>Pagina principala</a></li>
+            <li><a href="Camasi.html"><i class="fas fa-tshirt"></i>Haine</a></li>
+            <li><a href="Pantaloni.html"><i class="fas fa-male"></i>Pantaloni</a></li>
+            <li><a href="Ciorapi.html"><i class="fas fa-socks"></i>Ciorapi</a></li>
+            <li><a href="Incaltaminte.html"><i class="fas fa-shoe-prints"></i>Încălțăminte</a></li>
+            <li><a href="Palarie.html"><i class="fas fa-hat-cowboy"></i>Pălărie</a></li>
+            <li><a href="Curele.html"><i class="fas fa-people-arrows"></i>Curele</a></li>
+            <li><a href="Inele.html"><i class="far fa-circle"></i>   Inele</a></li>
+        </ul>
+
+</div>
+
+
+<div class="main_content">
+    <div class="header" style="color: black">Pagina de convertire.</div>  
+        <div class="info">
+          <div class="font-special">
+            <h1 style="color: #594f8d;" class="titlu">Inele</h1>
+            <h2 style="font-family: sans-serif; line-height: 1.5em; color: black; margin-top: 1em; margin-bottom: 1em; font-size:1.3em; text-align: justify;">
+            Mărimea pentru inele este ușor de luat dacă știi să urmezi câteva sfaturi simple. Ai nevoie de această informație mai ales dacă vrei să faci cadou un inel sau dacă vrei să îți cumperi un inel online. Iată cum să iei măsura pentru inele pentru degetele de la mâinile tale ușor, chiar la tine acasă.
+
+
+<center>
+    
+        <select id="data1">
+          <option value="0">14</option>
+          <option value="1">14.4</option>
+          <option value="2">14.8</option>
+          <option value="3">15.2</option>
+          <option value="4">15.6</option>
+          <option value="5">16</option>
+          <option value="6">16.5</option>
+          <option value="7">16.9</option>
+          <option value="8">17.3</option>
+          <option value="9">17.7</option>
+          <option value="10">18.2</option>
+          <option value="11">18.6</option>
+          <option value="12">19</option>
+          <option value="13">19.4</option>
+          <option value="14">19.8</option>
+          <option value="15">20.2</option>
+          <option value="16">20.6</option>
+          <option value="17">21</option>
+          <option value="18">21.4</option>
+          <option value="19">21.8</option>
+          <option value="20">22.2</option>
+          <option value="21">22.6</option>
+        </select>
+
+
+        <select onchange="tabel1()" id="data2">
+          <option value="0">Diametru inel</option>
+          <option value="1">SUA/Canada</option>
+          <option value="2">Regatul Unit</option>
+          <option value="3">Franta</option>
+          <option value="4">Germania</option>
+          <option value="5">Japonia</option>
+          <option value="6">Elvetia</option>
+        </select>
+
+<button onclick="inversia()" class="btn"></ion-icon></ion-icon></button>
+
+        <select id="data3">
+          <option value="0">Diametru inel</option>
+          <option value="1">SUA/Canada</option>
+          <option value="2">Regatul Unit</option>
+          <option value="3">Franta</option>
+          <option value="4">Germania</option>
+          <option value="5">Japonia</option>
+          <option value="6">Elvetia</option>
+        </select>
+
+<button onclick="convert()" class="button">Click me</button>
+        <br>
+        
+        <div class="rezultatul" id="result" style="font-size: 25px;"></div>
+</center>
+
+<script type="text/javascript">
+
+var valori_tabel=[
+["14.0 mm", "14.4 mm", "14.8 mm", "15.2 mm", "15.6 mm", "16.0 mm", "16.5 mm", "16.9 mm", "17.3 mm", "17.7 mm", "18.2 mm", "18.6 mm", "19.0 mm", "19.4 mm", "19.8 mm", "20.2 mm", "20.6 mm", "21.0 mm", "21.4 mm", "21.8 mm", "22.2 mm", "22.6 mm"],
+["3", "3½", "4", "4½", "5", "5½", "6", "6½", "7", "7½", "8", "8½", "9", "9½", "10", "10½", "11", "11½", "12", "12½", "13", "13½"],
+["F", "G", "H½", "I½", "J½", "L", "M", "N", "O", "P", "Q", "Q½", "R½", "S½", "T½", "U½", "V½", "W½", "Y", "Z", "Z + 1", "Z + 1.5"],
+["44", "45¼", "46½", "47¾", "49", "50¾", "51½", "52¾", "54", "55¼", "56¾", "58", "59¼", "60¾", "61¾", "62¾", "64¼", "66", "67¼", "68", "69", "71"],
+["14", "14½", "15", "15¼", "15¾", "16", "16½", "17", "17¼", "17¾", "18", "18½", "19", "19½", "20", "20¼", "20¾", "21", "21¼", "21¾", "22", "22.6"],
+["4", "5½", "7", "8", "9", "10½", "12", "13", "14", "15", "16", "17", "18", "19", "20", "22", "23", "24", "25", "26", "27", "-"],
+["4", "6⅓", "6½", "8", "9½", "10¾", "12¾", "14", "15¼", "16½", "17¾", "18½", "20", "21", "21¾", "22¾", "24", "25¾", "27½", "28¾", "29¼", "31"]
+]
+
+
+function tabel1()
+{
+
+// extragerea indexului valorii alese
+    var select = document.getElementById('data2');
+    var value = select.options[select.selectedIndex].value;
+    value = parseInt(value);
+
+//si inlocuirea cu valorile din matrice in dependenta cu ce schimbam
+    var data = document.getElementById("data1");
+    for(var i = 0; i < data.length; i++)
+    {
+        data.options[i].text = valori_tabel[value][i];
+    }
+
+}
+
+
+function convert()
+{
+    //extragem din dropdown stanga
+    var select = document.getElementById('data2');
+    var value1 = select.options[select.selectedIndex].value;
+    value1 = parseInt(value1);
+
+    //extragem din dropdown dreapta
+    var select = document.getElementById('data3');
+    var value2 = select.options[select.selectedIndex].value;
+    value2 = parseInt(value2);
+
+    //extragem indexul la valoarea aleasa
+    var select = document.getElementById('data1');
+    var index = select.options[select.selectedIndex].value;
+    index = parseInt(index);
+
+    document.getElementById("result").innerHTML = valori_tabel[value2][index];
+}
+    
+
+
+function inversia()
+{
+    //extragem din dropdown stanga
+    var select = document.getElementById('data2');
+    var value1 = select.options[select.selectedIndex].value;
+    value1 = parseInt(value1);
+
+    //extragem din dropdown dreapta
+    var select = document.getElementById('data3');
+    var value2 = select.options[select.selectedIndex].value;
+    value2 = parseInt(value2);
+
+    console.log(value1);
+    console.log(value2);
+
+        var stanga = document.getElementById('data2');
+
+    var dreapta = document.getElementById('data3');
+
+    stanga.selectedIndex = value2;
+
+    dreapta.selectedIndex = value1;
+
+    tabel1();
+
+}
+</script>
+        
+                
+              </div>
+        </div>
+        </div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

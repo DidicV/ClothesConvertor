@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Încălțăminte</title>
+</head>
+<body>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<div class="calculator">
+    <div class="sidebar">
+        <h2>Calculator</h2>
+        <ul>
+            <li><a href="Calculator.html"><i class="fas fa-home"></i>Pagina principala</a></li>
+            <li><a href="Camasi.html"><i class="fas fa-tshirt"></i>Haine</a></li>
+            <li><a href="Pantaloni.html"><i class="fas fa-male"></i>Pantaloni</a></li>
+            <li><a href="Ciorapi.html"><i class="fas fa-socks"></i>Ciorapi</a></li>
+            <li><a href="#"><i class="fas fa-shoe-prints"></i>Încălțăminte</a></li>
+            <li><a href="Palarie.html"><i class="fas fa-hat-cowboy"></i>Pălărie</a></li>
+            <li><a href="Curele.html"><i class="fas fa-people-arrows"></i>Curele</a></li>   
+            <li><a href="Inele.html"><i class="far fa-circle"></i>   Inele</a></li>       
+        </ul> 
+    </div>
+
+<div class="main_content">
+    <div class="header" style="color: black">Pagina de convertire.</div>  
+        <div class="info">
+          <div class="font-special">
+            <h1 style="color: #594f8d;" class="titlu">Încălțăminte</h1>
+            <h2 style="font-family: sans-serif; line-height: 1.5em; color:black; margin-top: 1em; margin-bottom: 1em; font-size:1.3em; text-align: justify;">
+            În ultimele decenii mărimile la încălțăminte s-au modificat destul de tare. La începutul secolului 20, în mediu, mărimea la încălțăminte pentru femei era 35, în anul 1950 – 36, în anul 1970 – 37, iar astăzi 39. Mărimea perfectă la bărbați la fel s-a modificat. Dacă, mai devreme cele mai răspândite mărimi la pantofi era 39-40, atunci astăzi este 43. Cum credeți ce mărimi încălțăminte ne așteaptă peste 50 sau 100 ani? După statisticile experților, înălțimea omului crește datorită alimentației corecte, bogate în vitamine și minerale. Odată cu înălțimea, noi adăugăm și în greutate, ceea ce înseamnă că picioarele noastre trebuie să suporte greutate mai mare, de aceea, în mod natural mărimea piciorului se mărește.
+            O mărime a încălțămintei este o indicație numerică a mărimii potrivite a unui pantof pentru o persoană. Mai multe sisteme diferite de mărimi a încălțămintei sunt încă folosite astăzi în întreaga lume. În unele regiuni, se obișnuiește chiar să se utilizeze sisteme de mărimi diferite pentru diferite tipuri de pantofi (de exemplu, pentru bărbați, femei, copii , pantofi de sport sau de siguranță).
+            </h2>
+
+
+<center>
+
+		<select id="data1">
+		  <option value="0">35</option>
+		  <option value="1">35.5</option>
+		  <option value="2">36</option>
+		  <option value="3">37</option>
+		  <option value="4">37.5</option>
+		  <option value="5">38</option>
+		  <option value="6">38.5</option>
+		  <option value="7">39</option>
+		  <option value="8">40</option>
+		  <option value="9">41</option>
+		  <option value="10">42</option>
+		  <option value="11">43</option>
+		  <option value="12">44</option>
+		  <option value="13">45</option>
+		  <option value="14">46.5</option>
+		  <option value="15">48.5</option>
+		</select>
+
+
+		<select onchange="tabel1()" id="data2">
+		  <option value="0">Europe</option>
+		  <option value="1">Regatul Unit bărbați</option>
+		  <option value="2">Regatul Unit femei</option>
+		  <option value="3">USA & Canada bărbați</option>
+		  <option value="4">USA & Canada femei</option>
+		  <option value="5">Japan bărbați</option>                                   
+		  <option value="6">Japan femei</option>
+		  <option value="7">Mexico</option>
+		  <option value="8">Brazil</option>
+		  <option value="9">Australia bărbați</option>
+		  <option value="10">Australia femei</option>
+		  <option value="11">Centimetri</option>
+		  <option value="12">Mondopoint</option>
+		  <option value="13">Inci</option>
+		</select>
+
+<button onclick="inversia()" class="btn"></ion-icon></ion-icon></button>
+
+		<select id="data3">
+		  <option value="0">Europe</option>
+		  <option value="1">Regatul Unit bărbați</option>
+		  <option value="2">Regatul Unit femei</option>
+		  <option value="3">USA & Canada bărbați</option>
+		  <option value="4">USA & Canada femei</option>
+		  <option value="5">Japan bărbați</option>                                   
+		  <option value="6">Japan femei</option>
+		  <option value="7">Mexico</option>
+		  <option value="8">Brazil</option>
+		  <option value="9">Australia bărbați</option>
+		  <option value="10">Australia femei</option>
+		  <option value="11">Centimetri</option>
+		  <option value="12">Mondopoint</option>
+		  <option value="13">Inci</option>
+		</select>
+
+<button onclick="convert()" class="button">Click me</button>
+        <br>
+        <div class="rezultatul" id="result" style="font-size: 25px;"></div>
+</center>
+
+<script type="text/javascript">
+
+var valori_tabel=[
+[  35, 35.5,   36,   37, 37.5,  38,  38.5,   39,   40,   41,   42,   43,   44,   45, 46.5,  48.5],
+[   3,  3.5,    4,  4.5,    5,  5.5,    6,  6.5,    7,  7.5,    8,  8.5,   10,   11,    12, 13.5],
+[ 2.5,    3,  3.5,    4,  4.5,    5,  5.5,    6,  6.5,    7,  7.5,    8,  9.5, 10.5,  11.5, 13  ],
+[ 3.5,    4,  4.5,    5,  5.5,    6,  6.5,    7,  7.5,    8,  8.5,    9, 10.5, 11.5,  12.5, 14  ],
+[   5,  5.5,    6,  6.5,    7,  7.5,    8,  8.5,    9,  9.5,   10, 10.5,   12,   13,    14, 15.5],
+[21.5,   22, 22.5,   23, 23.5,   24, 24.5,   25, 25.5,   26, 26.5, 27.5, 28.5, 29.5,  30.5, 31.5],
+[  21, 21.5,   22, 22.5,   23, 23.5,   24, 24.5,   25, 25.5,   26,   27,   28,   29,    30, 31  ],
+[   0,    0,    0,    0,    0,  4.5,    5,  5.5,    6,  6.5,    7,  7.5,    9,   10,    11, 12.5],
+[  33,   33,   34,   35,   35,   36,   36,   37,   38,   39,   40,   41,   42,   43,    44, 46  ],
+[   3,  3.5,    4,  4.5,    5,  5.5,    6,  6.5,    7,  7.5,    8,  8.5,   10,   11,    12, 13.5],
+[   5,  5.5,    6,  6.5,    7,  7.5,    8,  8.5,    9,  9.5,   10, 10.5,   12,   13,    14, 15.5],
+[22.8, 23.1, 23.5, 23.8, 24.1, 24.5, 24.8, 25.1, 25.4, 25.7,   26, 26.7, 27.3, 27.9,  28.6, 29.2],
+[ 228,  231,  235,  238,  241,  245,  248,  251,  254,  257,  260,  267,  273,  279,   286, 292 ],
+[   9,  9.1,  9.4,  9.4,  9.5,  9.6,  9.8,  9.9,   10, 10.1, 10.3, 10.5, 10.8,   11,  11.8, 11.5]
+
+]
+
+
+function tabel1()
+{
+
+// extragerea indexului valorii alese
+	var select = document.getElementById('data2');
+	var value = select.options[select.selectedIndex].value;
+	value = parseInt(value);
+
+//si inlocuirea cu valorile din matrice in dependenta cu ce schimbam
+	var data = document.getElementById("data1");
+	for(var i = 0; i < data.length; i++)
+	{
+    	data.options[i].text = valori_tabel[value][i];
+	}
+
+}
+
+
+function convert()
+{
+	//extragem din dropdown stanga
+	var select = document.getElementById('data2');
+	var value1 = select.options[select.selectedIndex].value;
+	value1 = parseInt(value1);
+
+	//extragem din dropdown dreapta
+	var select = document.getElementById('data3');
+	var value2 = select.options[select.selectedIndex].value;
+	value2 = parseInt(value2);
+
+	//extragem indexul la valoarea aleasa
+	var select = document.getElementById('data1');
+	var index = select.options[select.selectedIndex].value;
+	index = parseInt(index);
+
+	document.getElementById("result").innerHTML = valori_tabel[value2][index];
+}
+	
+
+
+function inversia()
+{
+	//extragem din dropdown stanga
+	var select = document.getElementById('data2');
+	var value1 = select.options[select.selectedIndex].value;
+	value1 = parseInt(value1);
+
+	//extragem din dropdown dreapta
+	var select = document.getElementById('data3');
+	var value2 = select.options[select.selectedIndex].value;
+	value2 = parseInt(value2);
+
+	console.log(value1);
+	console.log(value2);
+
+		var stanga = document.getElementById('data2');
+
+	var dreapta = document.getElementById('data3');
+
+	stanga.selectedIndex = value2;
+
+	dreapta.selectedIndex = value1;
+
+	tabel1();
+
+}
+</script>
+		
+            	
+              </div>
+        </div>
+        </div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
